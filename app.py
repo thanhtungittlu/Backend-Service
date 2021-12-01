@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 from flask_restful import  Api
 from resources.user import Loginn,ListUser, AddUser, User
 from resources.group import Group
-from resources.boxai import Boxai
+from resources.boxai import Boxai, ListBox
 
 
 
@@ -34,6 +34,10 @@ api.add_resource(User, "/user/<id>")
 
 api.add_resource(Group, "/group")
 api.add_resource(Boxai, "/box")
+api.add_resource(ListBox, "/boxs")
+
+
+
 
 
 

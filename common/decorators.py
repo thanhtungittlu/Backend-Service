@@ -17,7 +17,7 @@ def token_check(fn):
         # lấy token từ header ra
         try:
             token = request.headers.get('Authorization') 
-            
+            print("-------- Token ---------:", token)
             try:
                 resp = decode(token, os.environ.get('SECRET_KEY'), verify=False, algorithms=["HS256"])
             except Exception as e:
@@ -41,6 +41,6 @@ def token_check(fn):
                 },401
         except Exception as e:
             print("--------Lỗi---------",  e)
-            return {"error": "Can't get token"}, 401
+            return {"Error": "Bad request" }, 400
 
     return wrapper
